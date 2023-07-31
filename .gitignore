@@ -1,0 +1,12 @@
+# .gitignore
+.aws
+
+# Local .terraform directories
+.terraform/
+
+# *.lock.hcl
+# *.lock.info
+
+# .tfstate files
+*.tfstate
+*.tfstate*
