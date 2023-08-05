@@ -29,7 +29,7 @@ module "eks_blueprints_addons" {
     }
     # Example workloads: https://github.com/argoproj/argocd-example-apps/tree/master
     workloads = {
-      path               = "workloads"
+      path               = "workloads/kustomize-guestbook"
       repo_url           = "https://github.com/lowkasen/sandbox01-eks"
       add_on_application = false
     }
