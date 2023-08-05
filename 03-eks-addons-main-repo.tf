@@ -28,11 +28,12 @@ module "eks_blueprints_addons" {
       add_on_application = true
     }
     # Example workloads: https://github.com/argoproj/argocd-example-apps/tree/master
-    workloads = {
-      path               = "workloads/helm-guestbook"
-      repo_url           = "https://github.com/lowkasen/sandbox01-eks"
-      add_on_application = false
-    }
+    # Only works with helm charts, not kustomize
+    # workloads = {
+    #   path               = "workloads/helm-guestbook"
+    #   repo_url           = "https://github.com/lowkasen/sandbox01-eks"
+    #   add_on_application = false
+    # }
   }
 
   # Add-ons
