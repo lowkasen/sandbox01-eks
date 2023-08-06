@@ -1,0 +1,16 @@
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/lowkasen/sandbox01-eks
+    targetRevision: main
+
+applications:
+  # - name: assets
+  # - name: carts
+  # - name: catalog
+  # - name: checkout
+  # - name: orders
+  # - name: other
+  # - name: rabbitmq
+  - name: ui
