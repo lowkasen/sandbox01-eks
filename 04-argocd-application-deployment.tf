@@ -60,7 +60,7 @@ spec:
     namespace: apps
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
 YAML
 }
