@@ -25,11 +25,11 @@ metadata:
 spec:
   project: default
   source:
-    # repoURL: https://github.com/lowkasen/sandbox01-eks
+    repoURL: https://github.com/lowkasen/sandbox01-eks
     # targetRevision: main
-    # path: apps/helm-guestbook
-    repoURL: https://github.com/argoproj/argocd-example-apps
-    path: helm-guestbook
+    path: apps/helm-guestbook
+    # repoURL: https://github.com/argoproj/argocd-example-apps
+    # path: helm-guestbook
   destination:
     server: "https://kubernetes.default.svc"
     namespace: app-helm-guestbook
