@@ -13,7 +13,7 @@ spec:
   project: default
   destination:
     server: {{ $root.Values.spec.destination.server }}
-    namespace: app-{{ $application.name }}
+    namespace: apps
   source:
     repoURL: {{ $root.Values.spec.source.repoURL }}
     targetRevision: {{ $root.Values.spec.source.targetRevision }}
@@ -22,12 +22,12 @@ spec:
     automated:
       prune: true
       selfHeal: true
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: app-{{ $application.name }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+# ---
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: app-{{ $application.name }}
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
 {{- end -}}
 {{- end -}}
