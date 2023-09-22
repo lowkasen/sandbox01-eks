@@ -1,9 +1,3 @@
-# resource "helm_release" "argocd" {
-#   name       = "argocd"
-#   repository = "https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd"
-#   chart = 
-# }
-
 resource "kubectl_manifest" "app-helm-guestbook-ns" {
   yaml_body = <<YAML
 apiVersion: v1
@@ -23,6 +17,11 @@ kind: Application
 metadata:
   name: helm-guestbook
   namespace: argocd
+  finalizers:
+    # The default behaviour is foreground cascading deletion
+    - resources-finalizer.argocd.argoproj.io
+    # Alternatively, you can use background cascading deletion
+    # - resources-finalizer.argocd.argoproj.io/background
 spec:
   project: default
   source:
@@ -31,7 +30,7 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: app-helm-guestbook
-    syncPolicy:
+  syncPolicy:
     automated:
       prune: false
       selfHeal: false
