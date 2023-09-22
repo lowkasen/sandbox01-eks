@@ -22,12 +22,14 @@ spec:
     automated:
       prune: true
       selfHeal: true
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: app-{{ $application.name }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    syncOptions:
+      - CreateNamespace=true
+# ---
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: app-{{ $application.name }}
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
 {{- end -}}
 {{- end -}}
