@@ -4,4 +4,4 @@ namePrefix: kustomize-
 resources:
   - guestbook-ui-deployment.yaml
   - guestbook-ui-svc.yaml
-  # - guestbook-ui-ingress.yaml
+  - guestbook-ui-ingress.yaml
