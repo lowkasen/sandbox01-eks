@@ -6,13 +6,6 @@ spec:
     targetRevision: main
 
 applications:
-  # - name: assets
-  # - name: carts
-  # - name: catalog
-  # - name: checkout
-  # - name: orders
-  # - name: other
-  # - name: rabbitmq
   # - name: ui
   - name: helm-guestbook
   - name: kustomize-guestbook

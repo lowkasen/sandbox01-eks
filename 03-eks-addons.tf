@@ -55,7 +55,10 @@ module "eks_blueprints_addons" {
     namespace     = "argocd"
   }
 
-  #   enable_aws_load_balancer_controller    = true
+  enable_aws_load_balancer_controller = true
+  aws_load_balancer_controller = {
+    wait = true
+  }
   #   enable_cluster_proportional_autoscaler = true
   #   enable_karpenter                       = true
   #   enable_kube_prometheus_stack           = true
