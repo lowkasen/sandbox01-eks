@@ -7,5 +7,5 @@ spec:
 
 applications:
   # - name: ui
-  # - name: helm-guestbook
-  - name: kustomize-guestbook
+  - name: helm-guestbook
+  # - name: kustomize-guestbook
