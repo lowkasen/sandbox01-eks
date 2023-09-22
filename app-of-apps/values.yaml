@@ -13,4 +13,5 @@ applications:
   # - name: orders
   # - name: other
   # - name: rabbitmq
-  - name: ui
+  # - name: ui
+  - name: helm-guestbook
