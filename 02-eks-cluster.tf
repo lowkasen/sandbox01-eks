@@ -22,13 +22,13 @@ provider "kubernetes" {
   token                  = data.aws_eks_cluster_auth.default.token
 }
 
-# provider "helm" {
-#   kubernetes {
-#     host                   = data.aws_eks_cluster.default.endpoint
-#     cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-#     token                  = data.aws_eks_cluster_auth.default.token
-#   }
-# }
+provider "helm" {
+  kubernetes {
+    host                   = data.aws_eks_cluster.default.endpoint
+    cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
+    token                  = data.aws_eks_cluster_auth.default.token
+  }
+}
 
 # provider "kubectl" {
 #   apply_retry_count      = 10
@@ -85,6 +85,12 @@ module "eks" {
       name = "kube-system"
       selectors = [
         { namespace = "kube-system" }
+      ]
+    }
+    argocd = {
+      name = "argocd"
+      selectors = [
+        { namespace = "argocd" }
       ]
     }
   }

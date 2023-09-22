@@ -47,6 +47,14 @@ module "eks_blueprints_addons" {
     }
   }
 
+  enable_argocd = true
+  argocd = {
+    name          = "argocd"
+    chart_version = "5.46.6"
+    repository    = "https://argoproj.github.io/argo-helm"
+    namespace     = "argocd"
+  }
+
   #   enable_aws_load_balancer_controller    = true
   #   enable_cluster_proportional_autoscaler = true
   #   enable_karpenter                       = true
