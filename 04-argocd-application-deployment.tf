@@ -37,7 +37,7 @@ YAML
 # YAML
 # }
 
-esource "kubectl_manifest" "app-of-apps" {
+resource "kubectl_manifest" "app-of-apps" {
   depends_on = [kubectl_manifest.apps-ns]
   yaml_body  = <<YAML
 apiVersion: argoproj.io/v1alpha1
@@ -54,7 +54,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/lowkasen/sandbox01-eks
-    path: apps-of-apps
+    path: app-of-apps
   destination:
     server: "https://kubernetes.default.svc"
     namespace: apps
