@@ -1,3 +1,5 @@
+data "aws_region" "current" {}
+
 module "eks_blueprints_addons" {
   source  = "aws-ia/eks-blueprints-addons/aws"
   version = "~> 1.0" # ensure to update this to the latest/desired version
@@ -58,7 +60,22 @@ module "eks_blueprints_addons" {
   enable_aws_load_balancer_controller = true
   aws_load_balancer_controller = {
     wait = true
+    set = [
+      {
+        name  = "vpcId"
+        value = module.vpc.vpc_id
+      },
+      {
+        name  = "region"
+        value = data.aws_region.current.name
+      },
+      {
+        name  = "podDisruptionBudget.maxUnavailable"
+        value = 1
+      }
+    ]
   }
+
   #   enable_cluster_proportional_autoscaler = true
   #   enable_karpenter                       = true
   #   enable_kube_prometheus_stack           = true
