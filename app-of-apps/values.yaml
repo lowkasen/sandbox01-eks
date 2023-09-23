@@ -10,4 +10,4 @@ applications:
   - name: catalog
   - name: helm-guestbook
   - name: kustomize-guestbook
-  # - name: kustomize-first
+  - name: kustomize-first
