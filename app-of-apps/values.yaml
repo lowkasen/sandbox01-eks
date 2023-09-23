@@ -6,8 +6,8 @@ spec:
     targetRevision: main
 
 applications:
-  # - name: ui
-  - name: catalog
-  - name: helm-guestbook
+  # - name: catalog
+  # - name: helm-guestbook
   - name: kustomize-guestbook
   - name: kustomize-first
+  - name: kustomize-second

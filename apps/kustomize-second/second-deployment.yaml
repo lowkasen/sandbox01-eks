@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second
+  labels:
+    app.kubernetes.io/name: second
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: second
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: second
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+        - name: second
+          image: hashicorp/http-echo
+          imagePullPolicy: IfNotPresent
+          args:
+            - -listen=:3000
+            - -text=second
+          ports:
+            - name: app-port
+              containerPort: 3000
+          resources:
+            requests:
+              cpu: 0.125
+              memory: 50Mi

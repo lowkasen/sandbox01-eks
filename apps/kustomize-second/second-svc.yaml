@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: second
+  labels:
+    app.kubernetes.io/name: second
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: second
+  ports:
+    - name: svc-port
+      port: 80
+      targetPort: app-port
+      protocol: TCP
